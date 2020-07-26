@@ -5,6 +5,7 @@
 const loadPDF = pdfjsLib.getDocument('../data/tsx_20200723.pdf')
 
 let stocks = []
+let pseStocks = []
 let symbol,
   name,
   volume,
@@ -88,8 +89,38 @@ const func = async () => {
       })
     }
   })
-  console.log(stocks)
+  await stocks.map((stock) => {
+    pseStocks = [
+      ...pseStocks,
+      [stock.name, stock.symbol, '0', '0', '0', stock.high, stock.low, stock.close, stock.volume, "0", "0"],
+    ]
+  })
+  await pdfMake
+    .createPdf({
+      content: [
+        {
+          table: {
+            body: [
+              [
+                'Name',
+                'Symbol',
+                'Bid',
+                'Ask',
+                'Open',
+                'High',
+                'Low',
+                'Close',
+                'Volume',
+                'Value, Php',
+                'Net Foreign Buying/(Selling), Php',
+              ],
+              ...pseStocks,
+            ],
+          },
+        },
+      ],
+    })
+    .download()
 }
 
 func()
-
