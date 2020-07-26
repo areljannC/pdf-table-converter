@@ -1,0 +1,19 @@
+{
+  "name": "pdf-table-converter",
+  "version": "0.1.0",
+  "description": "Parse PDF tables and output them to anothe PDF.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/areljannC/pdf-table-converter.git"
+  },
+  "author": "AJ Clemente <areljann.c@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/areljannC/pdf-table-converter/issues"
+  },
+  "homepage": "https://github.com/areljannC/pdf-table-converter#readme"
+}
